@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPECIALIZAÇÃO EM CUTILAGEM | MÉTODO LUXO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #f8d7d7;
+            --accent-gold: #c4a484;
+            --dark-text: #2d2d2d;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('cutilagem_premium_hero_1778258512716.png');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            filter: brightness(0.9);
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            padding: 50px 40px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--dark-text);
+            line-height: 1.2;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        h1 span {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent-gold);
+        }
+
+        .description {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #c4a484 0%, #e0c5a8 100%);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(196, 164, 132, 0.3);
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(196, 164, 132, 0.4);
+            filter: brightness(1.05);
+        }
+
+        .secondary-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #999;
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .secondary-link:hover {
+            color: var(--accent-gold);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Loading */
+        #loader {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 1000;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            animation: bounce 0.6s infinite alternate;
+        }
+
+        .dot:nth-child(2) { animation-delay: 0.2s; }
+        .dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes bounce {
+            to { transform: translateY(-10px); opacity: 0.3; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-image"></div>
+
+    <div class="container" id="main-content">
+        <div class="tagline">Especialização Profissional</div>
+        
+        <h1>A cutilagem <span>perfeita</span> está a um clique de distância.</h1>
+        
+        <p class="description">
+            Descubra a técnica que transformou manicures comuns em especialistas de elite. Confirme seu interesse abaixo.
+        </p>
+
+        <button class="btn" onclick="go()">Sim, quero conhecer o método</button>
+        
+        <a href="javascript:void(0)" class="secondary-link">Não tenho interesse agora</a>
+    </div>
+
+    <div id="loader">
+        <div class="loader-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <script>
+        function go() {
+            document.getElementById('main-content').style.opacity = '0';
+            document.getElementById('main-content').style.transition = '0.5s';
+            
+            setTimeout(() => {
+                document.getElementById('loader').style.display = 'flex';
+                // Coloque o link de afiliado aqui
+                const checkout = "https://go.hotmart.com/SEU_LINK_AQUI";
+                setTimeout(() => {
+                    window.location.href = checkout;
+                }, 1500);
+            }, 500);
+        }
+    </script>
+</body>
+</html>

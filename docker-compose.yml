@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  presell-cutilagem:
+    image: ghcr.io/orakysec/presell-cutilagem:latest
+    container_name: presell-cutilagem
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.presell-cutilagem.rule=Host(`cutilagem.ykaromarques.com`)"
+      - "traefik.http.routers.presell-cutilagem.entrypoints=websecure"
+      - "traefik.http.routers.presell-cutilagem.tls.certresolver=letsencryptresolver"
+      - "traefik.http.services.presell-cutilagem.loadbalancer.server.port=80"
+    networks:
+      - YkaroNET
+
+networks:
+  YkaroNET:
+    external: true
